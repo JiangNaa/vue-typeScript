@@ -11,16 +11,41 @@ function resolve (dir) {
 }
 
 module.exports = {
+      optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    name: "commons",
+                    chunks: "initial",
+                    minChunks: 2
+                }
+            }
+        }
+    },
     entry: {
         main: '@/main',
-        'vender-base': '@/vendors/vendors.base.js',
-        'vender-exten': '@/vendors/vendors.exten.js'
+        'vender-base': '@/vendors/vendors.base.ts',
+        'vender-exten': '@/vendors/vendors.exten.ts'
     },
     output: {
         path: path.resolve(__dirname, '../dist/dist')
     },
     module: {
         rules: [
+          {
+            test: /\.ts$/,
+            exclude: /node_modules/,
+            enforce: 'pre',
+            loader: 'tslint-loader'
+          },
+          {
+            test: /\.tsx?$/,
+            loader: 'ts-loader',
+            exclude: /node_modules/,
+            options: {
+              appendTsSuffixTo: [/\.vue$/],
+            }
+          },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
@@ -85,16 +110,16 @@ module.exports = {
         ]
     },
     plugins: [
-        new NyanProgressPlugin(), // 进度条
-        new HappyPack({
-            id: 'happybabel',
-            loaders: ['babel-loader'],
-            threadPool: happyThreadPool,
-            verbose: true
-        })
+        // new NyanProgressPlugin(), // 进度条
+        // new HappyPack({
+        //     id: 'happybabel',
+        //     loaders: ['babel-loader'],
+        //     threadPool: happyThreadPool,
+        //     verbose: true
+        // })
     ],
     resolve: {
-        extensions: ['.js', '.vue'],
+        extensions: ['.js', '.vue', 'ts', 'tsx'],
         alias: {
             'vue': 'vue/dist/vue.esm.js',
             '@': resolve('../src'),

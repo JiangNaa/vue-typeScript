@@ -32,6 +32,8 @@
     "sortablejs": "^1.7.0",
     "tinymce": "^4.7.3",
     "vue": "^2.5.13",
+    "vue-class-component": "^6.2.0",
+    "vue-property-decorator": "^7.0.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
@@ -67,6 +69,8 @@
     "less-loader": "^4.0.5",
     "semver": "^5.4.1",
     "style-loader": "^0.19.0",
+    "ts-loader": "^4.5.0",
+    "typescript": "^3.0.1",
     "unsupported": "^1.1.0",
     "url-loader": "^0.6.2",
     "vue-hot-reload-api": "^2.2.4",
@@ -75,9 +79,9 @@
     "vue-loader": "^13.5.0",
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "^2.5.13",
-    "webpack": "^3.10.0",
+    "webpack": "4.0.0",
     "webpack-dev-server": "^2.9.5",
-    "webpack-merge": "^4.1.1",
+    "webpack-merge": "4.1.4",
     "webpack-uglify-parallel": "^0.1.4"
   }
 }

@@ -24,10 +24,10 @@ module.exports = merge(webpackBaseConfig, {
             filename: '[name].css',
             allChunks: true
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['vender-exten', 'vender-base'],
-            minChunks: Infinity
-        }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: ['vender-exten', 'vender-base'],
+        //     minChunks: Infinity
+        // }),
         new HtmlWebpackPlugin({
             title: 'iView admin v' + package.version,
             filename: '../index.html',
